@@ -1,7 +1,7 @@
 var io;
 var gameSocket;
 var rooms = {};
-var Room = require('../models/room.js').Room;
+var Room = require('../models/room.js');
 var gameStates = ["setup", "selecting", "voting", "mission", "revealing"];
 
 exports.initializeApp = function(socketIo, socket) {
@@ -26,8 +26,9 @@ function userJoined(data, socket){
   var socket = socket || this;
   if (data != null && rooms[data.roomId] != null) {
     socket.join(data.roomId.toUpperCase());
-    rooms[data.roomId].users.push(data.userId);
-    io.in(data.roomId.toUpperCase()).emit("user joined", rooms[data.roomId.toUpperCase()]);
+
+    rooms[data.roomId].users.push([socket.id.toString(),data.userId]);
+    io.in(data.roomId.toUpperCase()).emit('user joined', rooms[data.roomId.toUpperCase()]);
     io.in(data.roomId.toUpperCase()).emit('room id', data.roomId);
   } else {
     console.log("failed to join room");
@@ -39,6 +40,9 @@ function newMessage(data){
 }
 
 function startGame(data){
-  rooms[data.roomId].
-  io.in(data.roomId).emit(n)
+  var room = rooms[data.roomId];
+  room.initGame();
+  io.in(data.roomId).emit('gameStart', room);
+  console.log("attemping to broadcast to: "+room.users[room.missionLead][0]);
+  io.to(room.users[room.missionLead][0]).emit('selectingMembers', room);
 }
