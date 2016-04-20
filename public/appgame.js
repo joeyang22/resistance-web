@@ -51,10 +51,10 @@ $('#startGame').click(function(){
   createGame()
 });
 
-//socket events
-socket.on('chat message', function(msg){
-  $('#messages').append($('<li>').text(msg));
-});
+// //socket events
+// socket.on('chat message', function(msg){
+//   $('#messages').append($('<li>').text(msg));
+// });
 
 socket.on('user joined', function(room){
   room = room;

@@ -6,10 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <!-- <script src="appgame.js"></script> -->
     <title>Avalon</title>
   </head>
   <body>
-    <div class = "container theme-showcase " role="main">
+    <!-- <div class = "container theme-showcase " role="main">
       <div id="preLobby">
         <p>
           <input id="n" autocomplete="off" />
@@ -17,8 +20,8 @@
           <button type="button" class="btn btn-default" id="createRoom">Create Room</button>
           <button type="button" class="btn btn-default" id="joinRoom">Join Room</button>
         </p>
-      </div>
-      <div id="lobby">
+      </div> -->
+      <!-- <div id="lobby">
         <h1 id="roomName"></h1>
         <ul id="playerList" class = "list-group"></ul>
         <h2 id="missionLeader"></h2>
@@ -29,10 +32,11 @@
             <input id="m" autocomplete="off" /><button>Send</button>
           </form>
         </div>
-      </div>
-    </div>
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
-    <script src="appgame.js"></script>
+      </div> -->
+    <!-- </div> -->
+    <div id = "root"/>
+
+
+    <script src="bundle.js" type="text/javascript"></script>
   </body>
 </html>

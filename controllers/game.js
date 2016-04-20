@@ -36,6 +36,7 @@ function userJoined(data, socket){
 }
 
 function newMessage(data){
+  console.log("new message");
   io.in(data.roomId).emit('chat message', data.message);
 }
 
